@@ -33,9 +33,21 @@ namespace Calculator
 
         private static byte GetPriorytyForItem(string inputItem)
         {
-            // some code for check
-
-            return 0;
+            // Item priority (simple operators)
+            // * -      HIGH      4 4
+            // + -      MIDDLE    3 3
+            // ( )      LOW       1 2
+            
+            switch(inputItem)
+            {
+                case "/": return 4;
+                case "*": return 4;
+                case "+": return 3;
+                case "-": return 3;
+                case ")": return 2;
+                case "(": return 1;
+                default: return 0;
+            }
         }
 
         private static string ConvertExpressionToRPN(string inputExpression)
