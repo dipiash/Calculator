@@ -33,19 +33,19 @@ namespace Calculator
         private static byte GetPriorytyForItem(string inputItem)
         {
             // Item priority (simple operators)
-            // * -      HIGH      4 4
-            // + -      MIDDLE    3 3
-            // ( )      LOW       1 2
+            // * -      HIGH      3 3
+            // + -      MIDDLE    2 2
+            // ( )      LOW       0 1
             
             switch(inputItem)
             {
-                case "/": return 4;
-                case "*": return 4;
-                case "+": return 3;
-                case "-": return 3;
-                case ")": return 2;
-                case "(": return 1;
-                default: return 0;
+                case "/": return 3;
+                case "*": return 3;
+                case "+": return 2;
+                case "-": return 2;
+                case ")": return 1;
+                case "(": return 0;
+                default: return 4;
             }
         }
 
@@ -59,13 +59,11 @@ namespace Calculator
 
             for (countChars = 0; countChars < legthInputExpression; countChars++)
             {
-                char element = inputExpression[countChars];
-
-                if (Char.IsDigit(element))
+                if (Char.IsDigit(inputExpression[countChars]))
                 {
-                    while(!IsSimpleOperator(element))
+                    while(!IsSimpleOperator(inputExpression[countChars]))
                     {
-                        output += element;
+                        output += inputExpression[countChars];
                         countChars++;
 
                         if (countChars == legthInputExpression)
@@ -75,32 +73,46 @@ namespace Calculator
                     }
 
                     output += " ";
-                    // countChars--;
+                    countChars--;
                 }
 
-                if (IsSimpleOperator(element))
+                if (IsSimpleOperator(inputExpression[countChars]))
                 {
-                    switch (element)
+                    if (inputExpression[countChars] == '(')
                     {
-                        case '(':
-                            operatorStack.Push(element.ToString());
-                            break;
-                        case ')':
-                            // While (is not open quote from stack)
-                            // push elements to output string
-                            break;
-                        default:
-                            // Check priority   
-                            // push top elements to output string
-                            // push simple operator to stack
-                            break;
+                        operatorStack.Push(inputExpression[countChars].ToString());
+                    }
+
+                    if (inputExpression[countChars] == ')')
+                    {
+                        string itemsAtBracket = operatorStack.Pop();
+
+                        while (itemsAtBracket != "(")
+                        {
+                            output += itemsAtBracket + " ";
+                            itemsAtBracket = operatorStack.Pop();
+                        }
+                    }
+
+                    if (inputExpression[countChars] != '(' && inputExpression[countChars] != ')')
+                    {
+                         if (operatorStack.Count() > 0 && 
+                                GetPriorytyForItem(inputExpression[countChars].ToString()) <= GetPriorytyForItem(operatorStack.Peek()))
+                            {
+                                output += operatorStack.Pop() + " ";
+                            }
+
+                         operatorStack.Push(inputExpression[countChars].ToString());
                     }
                 }
-                    
-                // If end of input string - push all symbols to output string
-            }            
+            }
 
-            return output;
+            while (operatorStack.Count > 0)
+            {
+                output += operatorStack.Pop() + " ";
+            }        
+
+            return output.Trim();
         }
     }
 }
