@@ -15,14 +15,13 @@ namespace Calculator
 
         public static string GetRPNExpression(string inputExpression)
         {
-            // evaluate some methods
+            _outputExpression = ConvertExpressionToRPN(inputExpression);
 
             return _outputExpression;
         }
 
         private static bool IsSimpleOperator(char inputOperator)
         {
-            // some code for check
             if (SIMPLE_OPERATORS.IndexOf(inputOperator) != -1)
             {
                 return true;
