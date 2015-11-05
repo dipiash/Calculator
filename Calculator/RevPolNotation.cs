@@ -8,6 +8,8 @@ namespace Calculator
 {
     public class RevPolNotation
     {
+        private const string SIMPLE_OPERATORS = "+-*/()";
+
         private static string _inputExpression = string.Empty;
         private static string _outputExpression = string.Empty;
 
@@ -21,6 +23,10 @@ namespace Calculator
         private static bool IsSimpleOperator(char inputOperator)
         {
             // some code for check
+            if (SIMPLE_OPERATORS.IndexOf(inputOperator) != -1)
+            {
+                return true;
+            }
 
             return false;
         }
