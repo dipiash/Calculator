@@ -51,7 +51,22 @@ namespace Calculator
 
         private static string ConvertExpressionToRPN(string inputExpression)
         {
-            // some code for converting
+            // PSEUDO CODE
+
+            // While we have characters
+                // Read symbol
+                // If symbol is number
+                    // Add to output string
+                // If symbol is open quote
+                    // Add to stack
+                // If symbol is close quote
+                    // While (is not open quote from stack)
+                        // push elements to output string
+                // If symbol is simple operator
+                    // Check priority   
+                        // push top elements to output string
+                    // push simple operator to stack
+                // If end of input string - push all symbols to output string
 
             return "";
         }
