@@ -51,24 +51,56 @@ namespace Calculator
 
         private static string ConvertExpressionToRPN(string inputExpression)
         {
-            // PSEUDO CODE
+            string output = string.Empty;
+            Stack<string> operatorStack = new Stack<string>();
 
-            // While we have characters
-                // Read symbol
-                // If symbol is number
-                    // Add to output string
-                // If symbol is open quote
-                    // Add to stack
-                // If symbol is close quote
-                    // While (is not open quote from stack)
-                        // push elements to output string
-                // If symbol is simple operator
-                    // Check priority   
-                        // push top elements to output string
-                    // push simple operator to stack
+            int countChars;
+            int legthInputExpression = inputExpression.Length;
+
+            for (countChars = 0; countChars < legthInputExpression; countChars++)
+            {
+                char element = inputExpression[countChars];
+
+                if (Char.IsDigit(element))
+                {
+                    while(!IsSimpleOperator(element))
+                    {
+                        output += element;
+                        countChars++;
+
+                        if (countChars == legthInputExpression)
+                        {
+                            break;
+                        }
+                    }
+
+                    output += " ";
+                    // countChars--;
+                }
+
+                if (IsSimpleOperator(element))
+                {
+                    switch (element)
+                    {
+                        case '(':
+                            operatorStack.Push(element.ToString());
+                            break;
+                        case ')':
+                            // While (is not open quote from stack)
+                            // push elements to output string
+                            break;
+                        default:
+                            // Check priority   
+                            // push top elements to output string
+                            // push simple operator to stack
+                            break;
+                    }
+                }
+                    
                 // If end of input string - push all symbols to output string
+            }            
 
-            return "";
+            return output;
         }
     }
 }
