@@ -9,7 +9,7 @@ namespace Calculator
     public class CalculateRevPolNotation
     {
         private static decimal _result = decimal.Zero;
-        public static decimal GetResult(string inputRPNExpression)
+        public static decimal Calculate(string inputRPNExpression)
         {
             return _result;
         }
