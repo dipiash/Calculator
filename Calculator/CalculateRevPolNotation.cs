@@ -8,7 +8,6 @@ namespace Calculator
 {
     public class CalculateRevPolNotation
     {
-        private static decimal _result = decimal.Zero;
         public static decimal Calculate(string inputRPNExpression)
         {
             string[] items = inputRPNExpression.Split(' ');
