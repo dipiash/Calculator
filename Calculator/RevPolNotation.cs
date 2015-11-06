@@ -33,19 +33,19 @@ namespace Calculator
         private static byte GetPriorytyForItem(string inputItem)
         {
             // Item priority (simple operators)
-            // * -      HIGH      4 4
+            // * /      HIGH      4 5
             // + -      MIDDLE    2 3
             // ( )      LOW       0 1
             
             switch(inputItem)
             {
-                case "/": return 4;
+                case "/": return 5;
                 case "*": return 4;
                 case "-": return 3;
                 case "+": return 2;
                 case ")": return 1;
                 case "(": return 0;
-                default: return 4;
+                default: return 6;
             }
         }
 
