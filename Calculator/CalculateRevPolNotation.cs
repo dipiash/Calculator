@@ -14,12 +14,24 @@ namespace Calculator
             return _result;
         }
 
-        // Method for add
+        private static decimal Add(decimal a, decimal b)
+        {
+            return a + b;
+        }
 
-        // Method for sub
+        private static decimal Sub(decimal a, decimal b)
+        {
+            return a - b;
+        }
 
-        // Method for div
+        private static decimal Div(decimal a, decimal b)
+        {
+            return a / b;
+        }
 
-        // Method for mul
+        private static decimal Mul(decimal a, decimal b)
+        {
+            return a * b;
+        }
     }
 }
