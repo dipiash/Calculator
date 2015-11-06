@@ -54,7 +54,7 @@ namespace Calculator
                 }
             }
 
-            result = stack.Pop();
+            result = Decimal.Parse(stack.Pop().ToString("#.###"));
 
             return result;
         }
