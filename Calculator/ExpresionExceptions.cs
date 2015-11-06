@@ -11,5 +11,10 @@ namespace Calculator
         public ExpresionExceptions() { }
 
         public ExpresionExceptions(string message) : base(message) { }
+
+        public void PrintMessageToConsole(string message)
+        {
+            Console.WriteLine(message);
+        }
     }
 }
