@@ -54,7 +54,24 @@ namespace Calculator
                 }
             }
 
-            result = decimal.Parse(stack.Pop().ToString("#.###"));
+            result = RoundResult(stack.Pop());
+
+            return result;
+        }
+
+        private static decimal RoundResult(decimal inputResult)
+        {
+            decimal result = decimal.Zero;
+
+            result = inputResult;
+            if (result != 0)
+            {
+                result = decimal.Parse(result.ToString("#.###"));
+            }
+            else
+            {
+                result = 0;
+            }
 
             return result;
         }
