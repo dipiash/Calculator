@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Calculator
 {
-    class PrepInputExpression
+    public class PrepInputExpression
     {
         private static string _outputexpression = string.Empty;
         public static string PrepareExpression(string inputExpression)
