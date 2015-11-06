@@ -11,7 +11,53 @@ namespace Calculator
         private static decimal _result = decimal.Zero;
         public static decimal Calculate(string inputRPNExpression)
         {
-            return _result;
+            string[] items = inputRPNExpression.Split(' ');
+            Stack<decimal> stack = new Stack<decimal>();
+            decimal tmpNumber = decimal.Zero;
+            decimal result = decimal.Zero;
+
+            foreach (string token in items)
+            {
+                if (decimal.TryParse(token, out tmpNumber))
+                {
+                    stack.Push(tmpNumber);
+                }
+                else
+                {
+                    switch (token)
+                    {
+                        case "*":
+                            {
+                                stack.Push(Mul(stack.Pop(), stack.Pop()));
+                                break;
+                            }
+                        case "/":
+                            {
+                                tmpNumber = stack.Pop();
+                                stack.Push(Div(stack.Pop(), tmpNumber));
+                                break;
+                            }
+                        case "+":
+                            {
+                                stack.Push(Add(stack.Pop(), stack.Pop()));
+                                break;
+                            }
+                        case "-":
+                            {
+                                tmpNumber = stack.Pop();
+                                stack.Push(Sub(stack.Pop(), tmpNumber));
+                                break;
+                            }
+                        default:
+                            Console.WriteLine("Error in CalculateRPN(string) Method!");
+                            break;
+                    }
+                }
+            }
+
+            result = stack.Pop();
+
+            return result;
         }
 
         private static decimal Add(decimal a, decimal b)
