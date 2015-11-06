@@ -12,9 +12,11 @@ namespace Calculator.Tests
         {
             string oneExpression = "2+2"; // 2 2 +
             string twoExpression = "1+2-3"; // 1 2 3 - +
+            string threeExpression = "1*2/3"; // 1 2 3 / *
             
             Assert.AreEqual("2 2 +", RevPolNotation.GetRPNExpression(oneExpression));
             Assert.AreEqual("1 2 3 - +", RevPolNotation.GetRPNExpression(twoExpression));
+            Assert.AreEqual("1 2 3 / *", RevPolNotation.GetRPNExpression(threeExpression));
         }
 
         [TestMethod]
