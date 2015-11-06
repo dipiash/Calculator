@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace Calculator
 {
-    class CalculateRevPolNotation
+    public class CalculateRevPolNotation
     {
-        public static decimal _result = decimal.Zero;
+        private static decimal _result = decimal.Zero;
         public static decimal GetResult(string inputRPNExpression)
         {
             return _result;
