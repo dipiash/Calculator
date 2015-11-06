@@ -16,7 +16,7 @@ namespace Calculator.Tests
 
             Assert.AreEqual(4, CalculateRevPolNotation.Calculate(oneExpression));
             Assert.AreEqual(0, CalculateRevPolNotation.Calculate(twoExpression));
-            Assert.AreEqual(0.667, CalculateRevPolNotation.Calculate(threeExpression));
+            Assert.AreEqual((decimal)0.667, CalculateRevPolNotation.Calculate(threeExpression));
         }
 
         [TestMethod]
@@ -26,7 +26,7 @@ namespace Calculator.Tests
             string twoExpression = "2 2 2 3 4 * + / +"; // 2.143
 
             Assert.AreEqual(120, CalculateRevPolNotation.Calculate(oneExpression));
-            Assert.AreEqual(2.143, CalculateRevPolNotation.Calculate(twoExpression));
+            Assert.AreEqual((decimal)2.143, CalculateRevPolNotation.Calculate(twoExpression));
         }
     }
 }
