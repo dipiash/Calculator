@@ -35,7 +35,7 @@ namespace Calculator
         }
 
         // Check start|end symbol for Expression [/*]EXPRESSION[*/]
-        public static bool CheckStartEndExpression(string inputExpresion)
+        public static bool CheckStartEndExpression(string inputExpression)
         {
         }
 
