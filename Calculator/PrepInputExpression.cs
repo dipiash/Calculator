@@ -56,6 +56,10 @@ namespace Calculator
         }
 
         // Check quotes
+        private static List<string> CheckQuotes(string inputExpression)
+        {
+            return _logErros;
+        }
 
         // check digits|operators|quotes
 
