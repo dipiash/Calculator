@@ -42,6 +42,20 @@ namespace Calculator
         // Check start|end symbol for Expression [/*]EXPRESSION[*/]
         private static bool CheckStartEndExpression(string inputExpression)
         {
+            char startSymbol = inputExpression[0];
+            char endSymbol = inputExpression[inputExpression.Length - 1];
+
+            if (startSymbol == '*' || startSymbol == '/' || endSymbol == '*' || endSymbol == '/')
+            {
+                _logErros.Add("Error! Checked start or end symbol in your expression.");
+            }
+
+            if (_logErros.Count == 0)
+            {
+                return true;
+            }
+
+            return false;
         }
 
         // Check quotes
