@@ -89,6 +89,17 @@ namespace Calculator
         // check digits|operators|quotes|dot
         private static List<string> CheckRightSymbols(string inputExpression)
         {
+            string dictionary = "0123456789./*-+ ()";
+            int symbolNumber;
+            for (symbolNumber = 0; symbolNumber < inputExpression.Length; symbolNumber++)
+            {
+                if (dictionary.IndexOf(inputExpression[symbolNumber]) == -1)
+                {
+                    _logErros.Add("Error! Check your expression to contain only " + dictionary + " symbols.");
+                    break;
+                }
+            }
+
             return _logErros;
         }
 
