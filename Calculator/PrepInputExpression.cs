@@ -12,12 +12,15 @@ namespace Calculator
         private static string[] _logErros = { };
         public static string PrepareExpression(string inputExpression)
         {
-            // some code for prepare
+            string tmpString = inputExpression;
+            tmpString = tmpString.Trim();
+            tmpString = RepairStartExpression(tmpString);
+
+            _outputexpression = tmpString;
 
             return _outputexpression;
         }
 
-        // Add zero to end|start string, if we have simple operator at start|end
         // Add zero to start string, if we have simple operator [+-] is first symbol
         private static string RepairStartExpression(string inputExpression)
         {
