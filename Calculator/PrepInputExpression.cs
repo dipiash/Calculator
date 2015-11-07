@@ -21,6 +21,11 @@ namespace Calculator
             return _outputexpression;
         }
 
+        public List<string> ValidateInputExpression(string inputexpression)
+        {
+            return _logErros;
+        }
+
         // Add zero to start string, if we have simple operator [+-] is first symbol
         private static string RepairStartExpression(string inputExpression)
         {
