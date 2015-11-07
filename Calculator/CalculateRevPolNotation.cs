@@ -30,15 +30,19 @@ namespace Calculator
                         {
                             case "*":
                                 {
-                                    stack.Push(Mul(stack.Pop(), stack.Pop()));
+                                    decimal[] values = ContainValFromStack(stack);
+
+                                    stack.Push(Mul(values[0], values[1]));
                                     break;
                                 }
                             case "/":
                                 {
-                                    tmpNumber = stack.Pop();
+                                    decimal[] values = ContainValFromStack(stack);
+
+                                    tmpNumber = values[0];
                                     if (tmpNumber != 0 && tmpNumber != (decimal)0.0)
                                     {
-                                        stack.Push(Div(stack.Pop(), tmpNumber));
+                                        stack.Push(Div(values[1], tmpNumber));
                                     }
                                     else
                                     {
@@ -48,20 +52,25 @@ namespace Calculator
                                 }
                             case "+":
                                 {
-                                    stack.Push(Add(stack.Pop(), stack.Pop()));
+                                    decimal[] values = ContainValFromStack(stack);
+
+                                    stack.Push(Add(values[0], values[1]));
                                     break;
                                 }
                             case "-":
                                 {
-                                    tmpNumber = stack.Pop();
-                                    stack.Push(Sub(stack.Pop(), tmpNumber));
+                                    decimal[] values = ContainValFromStack(stack);
+
+                                    tmpNumber = values[0];
+                                    stack.Push(Sub(values[1], tmpNumber));
                                     break;
                                 }
                             default:
                                 new ExpresionExceptions("Error in RPN expression. Calculate error!");
                                 break;
                         }
-                    } catch (ExpresionExceptions e)
+                    }
+                    catch (ExpresionExceptions e)
                     {
                         Console.WriteLine(e.Message);
                         return -1;
