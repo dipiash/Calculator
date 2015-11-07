@@ -65,8 +65,6 @@ namespace Calculator
 
         // check digits|operators|quotes
 
-        // Trim
-
         // Check sequence
             // ++|+-|+*|+/
             // --|-+|-*|-/
