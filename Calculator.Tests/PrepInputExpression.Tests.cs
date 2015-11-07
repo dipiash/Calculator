@@ -61,5 +61,27 @@ namespace Calculator.Tests
             Assert.AreEqual(testPrep.ValidateInputExpression(threeExpression).Count, 0);
             Assert.AreEqual(testPrep.ValidateInputExpression(fourExpression).Count, 0);
         }
+
+        [TestMethod]
+        public void Test_ValidateInputExpresion_CheckRigthSymbols()
+        {
+            // incorrect
+            string oneExpression = "qwerty1+2";
+            string twoExpression = "=45+2qwerty";
+            string threeExpression = "(qwerty)-1+2";
+
+            // correct
+            string fourExpression = "((1+(1)))";
+            string fiveExpression = "1+(2+3)/5+(1+1)/2";
+
+            PrepInputExpression testPrep = new PrepInputExpression();
+
+            Assert.AreEqual(testPrep.ValidateInputExpression(oneExpression).Count, 1);
+            Assert.AreEqual(testPrep.ValidateInputExpression(twoExpression).Count, 1);
+            Assert.AreEqual(testPrep.ValidateInputExpression(threeExpression).Count, 1);
+
+            Assert.AreEqual(testPrep.ValidateInputExpression(fourExpression).Count, 0);
+            Assert.AreEqual(testPrep.ValidateInputExpression(fiveExpression).Count, 0);
+        }
     }
 }
