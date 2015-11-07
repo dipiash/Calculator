@@ -15,9 +15,9 @@ namespace Calculator.Tests
             string threeExpression = "1 2 3 / *"; // 0.667
             string fourExpression = "1/0";
 
-            Assert.AreEqual(4, CalculateRevPolNotation.Calculate(oneExpression));
-            Assert.AreEqual(0, CalculateRevPolNotation.Calculate(twoExpression));
-            Assert.AreEqual((decimal)0.667, CalculateRevPolNotation.Calculate(threeExpression));
+            Assert.AreEqual(CalculateRevPolNotation.Calculate(oneExpression), 4);
+            Assert.AreEqual(CalculateRevPolNotation.Calculate(twoExpression), 0);
+            Assert.AreEqual(CalculateRevPolNotation.Calculate(threeExpression), (decimal)0.667);
             Assert.AreEqual(CalculateRevPolNotation.Calculate(fourExpression), -1);
         }
 
@@ -27,8 +27,8 @@ namespace Calculator.Tests
             string oneExpression = "2 2 + 30 *"; // 120
             string twoExpression = "2 2 2 3 4 * + / +"; // 2.143
 
-            Assert.AreEqual(120, CalculateRevPolNotation.Calculate(oneExpression));
-            Assert.AreEqual((decimal)2.143, CalculateRevPolNotation.Calculate(twoExpression));
+            Assert.AreEqual(CalculateRevPolNotation.Calculate(oneExpression), 120);
+            Assert.AreEqual(CalculateRevPolNotation.Calculate(twoExpression), (decimal)2.143);
         }
     }
 }
