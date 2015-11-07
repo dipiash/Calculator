@@ -26,6 +26,7 @@ namespace Calculator
             _logErros = new List<string>();
 
             _logErros = CheckStartEndExpression(inputexpression);
+            _logErros = CheckQuotes(inputexpression);
 
             return _logErros;
         }
