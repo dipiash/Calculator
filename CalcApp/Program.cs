@@ -36,10 +36,17 @@ namespace CalcApp
                 else
                 {
                     tmpExpression = RevPolNotation.GetRPNExpression(tmpExpression);
-                    decimal result = CalculateRevPolNotation.Calculate(tmpExpression);
+                    try
+                    {
+                        decimal result = CalculateRevPolNotation.Calculate(tmpExpression);
 
-                    Console.WriteLine("Evaluate expression: {0}", expression);
-                    Console.WriteLine("result: {0}", result);
+                        Console.WriteLine("Evaluate expression: {0}", expression);
+                        Console.WriteLine("result: {0}", result);
+                    }
+                    catch (ExpresionExceptions e)
+                    {
+                        Console.WriteLine(e.Message);
+                    }
                 }
             }
         }
