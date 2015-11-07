@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Calculator
 {
-    class ExpresionExceptions : ApplicationException
+    public class ExpresionExceptions : ApplicationException
     {
         public ExpresionExceptions() { }
 
