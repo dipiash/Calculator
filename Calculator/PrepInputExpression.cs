@@ -23,6 +23,8 @@ namespace Calculator
 
         public List<string> ValidateInputExpression(string inputexpression)
         {
+            _logErros = CheckStartEndExpression(inputexpression);
+
             return _logErros;
         }
 
