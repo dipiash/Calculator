@@ -35,7 +35,13 @@ namespace Calculator
                             case "/":
                                 {
                                     tmpNumber = stack.Pop();
-                                    stack.Push(Div(stack.Pop(), tmpNumber));
+                                    if (tmpNumber != 0)
+                                    {
+                                        stack.Push(Div(stack.Pop(), tmpNumber));
+                                    } else
+                                    {
+                                        new ExpresionExceptions("Error! Division by zero.");
+                                    }
                                     break;
                                 }
                             case "+":
@@ -51,7 +57,7 @@ namespace Calculator
                                 }
                             default:
                                 new ExpresionExceptions("Error in RPN expression. Calculate error!");
-                                break;
+                                return -1;
                         }
                     } catch (ExpresionExceptions e)
                     {
