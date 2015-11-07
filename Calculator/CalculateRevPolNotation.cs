@@ -75,9 +75,8 @@ namespace Calculator
 
         private static decimal RoundResult(decimal inputResult)
         {
-            decimal result = decimal.Zero;
+            decimal result = inputResult;
 
-            result = inputResult;
             if (result != 0)
             {
                 result = decimal.Parse(result.ToString("#.###"));
