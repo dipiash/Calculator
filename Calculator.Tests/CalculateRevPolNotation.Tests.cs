@@ -36,9 +36,19 @@ namespace Calculator.Tests
         {
             string oneExpression = "2 2 + 30 *"; // 120
             string twoExpression = "2 2 2 3 4 * + / +"; // 2.143
+            string threeExpression = "2 * / - +"; // Error in RPN expression. Calculate error!
 
             Assert.AreEqual(CalculateRevPolNotation.Calculate(oneExpression), 120);
             Assert.AreEqual(CalculateRevPolNotation.Calculate(twoExpression), (decimal)2.143);
+
+            try
+            {
+                decimal resultExpression = CalculateRevPolNotation.Calculate(threeExpression);
+            } 
+            catch (ExpresionExceptions e)
+            {
+                Assert.AreEqual(e.Message, "Error! You input incorrect expression.");
+            }
         }
     }
 }
