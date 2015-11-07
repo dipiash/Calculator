@@ -18,6 +18,18 @@ namespace Calculator
         }
 
         // Add zero to end|start string, if we have simple operator at start|end
+        // Add zero to start string, if we have simple operator [+-] is first symbol
+        private static string RepairStartExpression(string inputExpression)
+        {
+            char startSimbol = inputExpression[0];
+
+            if (startSimbol == '+' || startSimbol == '-')
+            {
+                inputExpression = "0" + inputExpression;
+            }
+
+            return inputExpression;
+        }
 
         // Check quotes
 
