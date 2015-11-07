@@ -27,6 +27,7 @@ namespace Calculator
 
             _logErros = CheckStartEndExpression(inputexpression);
             _logErros = CheckQuotes(inputexpression);
+            _logErros = CheckRightSymbols(inputexpression);
 
             return _logErros;
         }
@@ -101,15 +102,6 @@ namespace Calculator
             }
 
             return _logErros;
-        }
-
-        // Check sequence
-            // ++|+-|+*|+/
-            // --|-+|-*|-/
-            // **|*+|*-|*/
-            // //|/-|/+|/*
-            // ()|(.|.)|.(|).
-            // ..|.+|.-|.*|./
-            // +.|-.|*.|/.
+        }        
     }
 }
