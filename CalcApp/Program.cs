@@ -40,12 +40,12 @@ namespace CalcApp
                     {
                         decimal result = CalculateRevPolNotation.Calculate(tmpExpression);
 
-                        Console.WriteLine("Evaluate expression: {0}", expression);
+                        Console.WriteLine("\nEvaluate expression: {0}", expression);
                         Console.WriteLine("result: {0}", result);
                     }
                     catch (ExpresionExceptions e)
                     {
-                        Console.WriteLine(e.Message);
+                        Console.WriteLine("\n" + e.Message);
                     }
                 }
             }
