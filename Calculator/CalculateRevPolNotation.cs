@@ -23,33 +23,39 @@ namespace Calculator
                 }
                 else
                 {
-                    switch (token)
+                    try
                     {
-                        case "*":
-                            {
-                                stack.Push(Mul(stack.Pop(), stack.Pop()));
+                        switch (token)
+                        {
+                            case "*":
+                                {
+                                    stack.Push(Mul(stack.Pop(), stack.Pop()));
+                                    break;
+                                }
+                            case "/":
+                                {
+                                    tmpNumber = stack.Pop();
+                                    stack.Push(Div(stack.Pop(), tmpNumber));
+                                    break;
+                                }
+                            case "+":
+                                {
+                                    stack.Push(Add(stack.Pop(), stack.Pop()));
+                                    break;
+                                }
+                            case "-":
+                                {
+                                    tmpNumber = stack.Pop();
+                                    stack.Push(Sub(stack.Pop(), tmpNumber));
+                                    break;
+                                }
+                            default:
+                                new ExpresionExceptions("Error in RPN expression. Calculate error!");
                                 break;
-                            }
-                        case "/":
-                            {
-                                tmpNumber = stack.Pop();
-                                stack.Push(Div(stack.Pop(), tmpNumber));
-                                break;
-                            }
-                        case "+":
-                            {
-                                stack.Push(Add(stack.Pop(), stack.Pop()));
-                                break;
-                            }
-                        case "-":
-                            {
-                                tmpNumber = stack.Pop();
-                                stack.Push(Sub(stack.Pop(), tmpNumber));
-                                break;
-                            }
-                        default:
-                            Console.WriteLine("Error in CalculateRPN(string) Method!");
-                            break;
+                        }
+                    } catch (ExpresionExceptions e)
+                    {
+                        Console.WriteLine(e.Message);
                     }
                 }
             }
