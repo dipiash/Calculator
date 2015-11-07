@@ -19,7 +19,7 @@ namespace Calculator.Tests
         }
 
         [TestMethod]
-        public void Test_CheckStartEndExpression()
+        public void Test_ValidateInputExpression_StartEndSymbol()
         {
             string oneExpression = "2*";
             string twoExpression = "4/";
@@ -27,11 +27,13 @@ namespace Calculator.Tests
             string fourExpression = "*6/";
             string fiveExpression = "5*6+4-3";
 
-            Assert.AreEqual(PrepInputExpression.CheckStartEndExpression(oneExpression), false);
-            Assert.AreEqual(PrepInputExpression.CheckStartEndExpression(twoExpression), false);
-            Assert.AreEqual(PrepInputExpression.CheckStartEndExpression(threeExpression), false);
-            Assert.AreEqual(PrepInputExpression.CheckStartEndExpression(fourExpression), false);
-            Assert.AreEqual(PrepInputExpression.CheckStartEndExpression(fiveExpression), true);
+            PrepInputExpression testPrep = new PrepInputExpression();
+
+            Assert.AreEqual(testPrep.ValidateInputExpression(oneExpression).Count, 1);
+            Assert.AreEqual(testPrep.ValidateInputExpression(twoExpression).Count, 1);
+            Assert.AreEqual(testPrep.ValidateInputExpression(threeExpression).Count, 1);
+            Assert.AreEqual(testPrep.ValidateInputExpression(fourExpression).Count, 1);
+            Assert.AreEqual(testPrep.ValidateInputExpression(fiveExpression).Count, 0);
         }
     }
 }
