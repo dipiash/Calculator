@@ -35,12 +35,11 @@ namespace Calculator.Tests
             PrepInputExpression testPrep = new PrepInputExpression();
 
             Assert.AreEqual(testPrep.ValidateInputExpression(oneExpression).Count, 1);
-            Assert.AreEqual(testPrep.ValidateInputExpression(twoExpression).Count, 2);
-            Assert.AreEqual(testPrep.ValidateInputExpression(threeExpression).Count, 3);
-            Assert.AreEqual(testPrep.ValidateInputExpression(fourExpression).Count, 4);
-
-            // count errors in _logError should be 4, because fiveExpression is correct
-            Assert.AreEqual(testPrep.ValidateInputExpression(fiveExpression).Count, 4);
+            Assert.AreEqual(testPrep.ValidateInputExpression(twoExpression).Count, 1);
+            Assert.AreEqual(testPrep.ValidateInputExpression(threeExpression).Count, 1);
+            Assert.AreEqual(testPrep.ValidateInputExpression(fourExpression).Count, 1);
+            
+            Assert.AreEqual(testPrep.ValidateInputExpression(fiveExpression).Count, 0);
         }
 
         [TestMethod]
@@ -57,11 +56,10 @@ namespace Calculator.Tests
             PrepInputExpression testPrep = new PrepInputExpression();
 
             Assert.AreEqual(testPrep.ValidateInputExpression(oneExpression).Count, 1);
-            Assert.AreEqual(testPrep.ValidateInputExpression(twoExpression).Count, 2);
-
-            // Count errors in _logError should be 2, because three* and four* is correct
-            Assert.AreEqual(testPrep.ValidateInputExpression(threeExpression).Count, 2);
-            Assert.AreEqual(testPrep.ValidateInputExpression(fourExpression).Count, 2);
+            Assert.AreEqual(testPrep.ValidateInputExpression(twoExpression).Count, 1);
+            
+            Assert.AreEqual(testPrep.ValidateInputExpression(threeExpression).Count, 0);
+            Assert.AreEqual(testPrep.ValidateInputExpression(fourExpression).Count, 0);
         }
     }
 }
