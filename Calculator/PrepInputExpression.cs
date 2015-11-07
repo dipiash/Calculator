@@ -34,6 +34,11 @@ namespace Calculator
             return inputExpression;
         }
 
+        // Check start|end symbol for Expression [/*]EXPRESSION[*/]
+        public static bool CheckStartEndExpression(string inputExpresion)
+        {
+        }
+
         // Check quotes
 
         // check digits|operators|quotes
