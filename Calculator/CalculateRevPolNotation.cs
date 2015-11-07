@@ -74,6 +74,30 @@ namespace Calculator
             return result;
         }
 
+        private static decimal[] ContainValFromStack(Stack<decimal> st)
+        {
+            decimal[] twoVal = new decimal[2];
+
+            if (st.Count != 0)
+            {
+                twoVal[0] = st.Pop();
+            } else
+            {
+                new ExpresionExceptions("Error! You input incorrect expression.");
+            }
+
+            if (st.Count != 0)
+            {
+                twoVal[1] = st.Pop();
+            }
+            else
+            {
+                new ExpresionExceptions("Error! You input incorrect expression.");
+            }
+
+            return twoVal;
+        }
+
         private static decimal RoundResult(decimal inputResult)
         {
             decimal result = inputResult;
