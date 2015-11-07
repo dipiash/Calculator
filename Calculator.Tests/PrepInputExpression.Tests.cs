@@ -21,19 +21,24 @@ namespace Calculator.Tests
         [TestMethod]
         public void Test_ValidateInputExpression_StartEndSymbol()
         {
+            // incorrect
             string oneExpression = "2*";
             string twoExpression = "4/";
             string threeExpression = "/5*";
             string fourExpression = "*6/";
+            
+            // correct
             string fiveExpression = "5*6+4-3";
 
             PrepInputExpression testPrep = new PrepInputExpression();
 
             Assert.AreEqual(testPrep.ValidateInputExpression(oneExpression).Count, 1);
-            Assert.AreEqual(testPrep.ValidateInputExpression(twoExpression).Count, 1);
-            Assert.AreEqual(testPrep.ValidateInputExpression(threeExpression).Count, 1);
-            Assert.AreEqual(testPrep.ValidateInputExpression(fourExpression).Count, 1);
-            Assert.AreEqual(testPrep.ValidateInputExpression(fiveExpression).Count, 0);
+            Assert.AreEqual(testPrep.ValidateInputExpression(twoExpression).Count, 2);
+            Assert.AreEqual(testPrep.ValidateInputExpression(threeExpression).Count, 3);
+            Assert.AreEqual(testPrep.ValidateInputExpression(fourExpression).Count, 4);
+
+            // count errors in _logError should be 4, because fiveExpression is correct
+            Assert.AreEqual(testPrep.ValidateInputExpression(fiveExpression).Count, 4);
         }
     }
 }
