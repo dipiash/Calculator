@@ -59,7 +59,7 @@ namespace Calculator
 
             for (countChars = 0; countChars < legthInputExpression; countChars++)
             {
-                if (Char.IsDigit(inputExpression[countChars]))
+                if (Char.IsDigit(inputExpression[countChars]) || inputExpression[countChars] == '.')
                 {
                     while(!IsSimpleOperator(inputExpression[countChars]))
                     {
