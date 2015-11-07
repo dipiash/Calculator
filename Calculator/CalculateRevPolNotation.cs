@@ -10,6 +10,7 @@ namespace Calculator
         {
             string[] items = inputRPNExpression.Split(' ');
             Stack<decimal> stack = new Stack<decimal>();
+
             decimal tmpNumber = decimal.Zero;
             decimal result = decimal.Zero;
 
@@ -43,7 +44,7 @@ namespace Calculator
                                     }
                                     else
                                     {
-                                        new ExpresionExceptions("Error! Division by zero.");
+                                        throw new ExpresionExceptions("Error! Division by zero.");
                                     }
                                     break;
                                 }
@@ -63,14 +64,12 @@ namespace Calculator
                                     break;
                                 }
                             default:
-                                new ExpresionExceptions("Error in RPN expression. Calculate error!");
-                                break;
+                                throw new ExpresionExceptions("Calculate error!");
                         }
                     }
                     catch (ExpresionExceptions e)
                     {
                         Console.WriteLine(e.Message);
-                        return -1;
                     }
                 }
             }
@@ -83,7 +82,7 @@ namespace Calculator
                 }
                 else
                 {
-                    new ExpresionExceptions("Error! You input incorrect expression.");
+                    throw new ExpresionExceptions("Error! You input incorrect expression.");
                 }
             }
             catch (ExpresionExceptions e)
@@ -103,7 +102,7 @@ namespace Calculator
                 twoVal[0] = st.Pop();
             } else
             {
-                new ExpresionExceptions("Error! You input incorrect expression.");
+                throw new ExpresionExceptions("Error! You input incorrect expression.");
             }
 
             if (st.Count != 0)
@@ -112,7 +111,7 @@ namespace Calculator
             }
             else
             {
-                new ExpresionExceptions("Error! You input incorrect expression.");
+                throw new ExpresionExceptions("Error! You input incorrect expression.");
             }
 
             return twoVal;
