@@ -16,31 +16,30 @@ namespace CalcApp
                 if (expression.Length == 0)
                 {
                     Console.WriteLine("Error! You should input expression!");
+                    continue;
+                }
+
+                PrepInputExpression prepare = new PrepInputExpression();
+                string tmpExpression = prepare.PrepareExpression(expression);
+                List<string> errors = prepare.ValidateInputExpression(tmpExpression);
+                int countErrors = errors.Count;
+
+                if (countErrors != 0)
+                {
+                    Console.WriteLine("\nFounded {0} error.", countErrors);
+                    int item;
+                    for (item = 0; item < countErrors; item++)
+                    {
+                        Console.WriteLine(errors[item]);
+                    }
                 }
                 else
                 {
-                    PrepInputExpression prepare = new PrepInputExpression();
-                    string tmpExpression = prepare.PrepareExpression(expression);
-                    List<string> errors = prepare.ValidateInputExpression(tmpExpression);
-                    int countErrors = errors.Count;
+                    tmpExpression = RevPolNotation.GetRPNExpression(tmpExpression);
+                    decimal result = CalculateRevPolNotation.Calculate(tmpExpression);
 
-                    if (countErrors != 0)
-                    {
-                        Console.WriteLine("\nFounded {0} error.", countErrors);
-                        int item;
-                        for (item = 0; item < countErrors; item++)
-                        {
-                            Console.WriteLine(errors[item]);
-                        }
-                    }
-                    else
-                    {
-                        tmpExpression = RevPolNotation.GetRPNExpression(tmpExpression);
-                        decimal result = CalculateRevPolNotation.Calculate(tmpExpression);
-
-                        Console.WriteLine("Evaluate expression: {0}", expression);
-                        Console.WriteLine("result: {0}", result);
-                    }
+                    Console.WriteLine("Evaluate expression: {0}", expression);
+                    Console.WriteLine("result: {0}", result);
                 }
             }
         }
