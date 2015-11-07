@@ -13,9 +13,11 @@ namespace Calculator.Tests
             string twoExpression = "2+2";
             string threeExpression = "-2";
 
-            Assert.AreEqual(PrepInputExpression.PrepareExpression(oneExpression), "0+2");
-            Assert.AreEqual(PrepInputExpression.PrepareExpression(twoExpression), "2+2");
-            Assert.AreEqual(PrepInputExpression.PrepareExpression(threeExpression), "0-2");
+            PrepInputExpression testPrep = new PrepInputExpression();
+
+            Assert.AreEqual(testPrep.PrepareExpression(oneExpression), "0+2");
+            Assert.AreEqual(testPrep.PrepareExpression(twoExpression), "2+2");
+            Assert.AreEqual(testPrep.PrepareExpression(threeExpression), "0-2");
         }
 
         [TestMethod]
