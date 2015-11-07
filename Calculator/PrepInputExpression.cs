@@ -86,13 +86,19 @@ namespace Calculator
             return _logErros;
         }
 
-        // check digits|operators|quotes
+        // check digits|operators|quotes|dot
+        private static List<string> CheckRightSymbols(string inputExpression)
+        {
+            return _logErros;
+        }
 
         // Check sequence
             // ++|+-|+*|+/
             // --|-+|-*|-/
             // **|*+|*-|*/
             // //|/-|/+|/*
-            // ()
+            // ()|(.|.)|.(|).
+            // ..|.+|.-|.*|./
+            // +.|-.|*.|/.
     }
 }
