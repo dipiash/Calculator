@@ -24,9 +24,9 @@ namespace Calculator
         // Add zero to start string, if we have simple operator [+-] is first symbol
         private static string RepairStartExpression(string inputExpression)
         {
-            char startSimbol = inputExpression[0];
+            char startSymbol = inputExpression[0];
 
-            if (startSimbol == '+' || startSimbol == '-')
+            if (startSymbol == '+' || startSymbol == '-')
             {
                 inputExpression = "0" + inputExpression;
             }
