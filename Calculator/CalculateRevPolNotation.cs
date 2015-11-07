@@ -35,10 +35,11 @@ namespace Calculator
                             case "/":
                                 {
                                     tmpNumber = stack.Pop();
-                                    if (tmpNumber != 0)
+                                    if (tmpNumber != 0 && tmpNumber != (decimal)0.0)
                                     {
                                         stack.Push(Div(stack.Pop(), tmpNumber));
-                                    } else
+                                    }
+                                    else
                                     {
                                         new ExpresionExceptions("Error! Division by zero.");
                                     }
@@ -57,11 +58,12 @@ namespace Calculator
                                 }
                             default:
                                 new ExpresionExceptions("Error in RPN expression. Calculate error!");
-                                return -1;
+                                break;
                         }
                     } catch (ExpresionExceptions e)
                     {
                         Console.WriteLine(e.Message);
+                        return -1;
                     }
                 }
             }
