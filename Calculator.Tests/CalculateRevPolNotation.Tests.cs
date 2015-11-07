@@ -13,12 +13,22 @@ namespace Calculator.Tests
             string oneExpression = "2 2 +"; // 4
             string twoExpression = "1 2 3 - +"; // 0
             string threeExpression = "1 2 3 / *"; // 0.667
-            string fourExpression = "1/0";
+            string fourExpression = "1 0 /"; // "Error! Division by zero."
+            string fiveExpression = "1.2 3 -"; // -1.8
 
             Assert.AreEqual(CalculateRevPolNotation.Calculate(oneExpression), 4);
             Assert.AreEqual(CalculateRevPolNotation.Calculate(twoExpression), 0);
             Assert.AreEqual(CalculateRevPolNotation.Calculate(threeExpression), (decimal)0.667);
-            Assert.AreEqual(CalculateRevPolNotation.Calculate(fourExpression), -1);
+
+            try
+            {
+                decimal calcFour = CalculateRevPolNotation.Calculate(fourExpression);
+            } catch (ExpresionExceptions e)
+            {
+                Assert.AreEqual(e.Message, "Error! Division by zero.");
+            }
+
+            Assert.AreEqual(CalculateRevPolNotation.Calculate(fiveExpression), (decimal)-1.8);
         }
 
         [TestMethod]
