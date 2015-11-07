@@ -13,10 +13,12 @@ namespace Calculator.Tests
             string oneExpression = "2 2 +"; // 4
             string twoExpression = "1 2 3 - +"; // 0
             string threeExpression = "1 2 3 / *"; // 0.667
+            string fourExpression = "1/0";
 
             Assert.AreEqual(4, CalculateRevPolNotation.Calculate(oneExpression));
             Assert.AreEqual(0, CalculateRevPolNotation.Calculate(twoExpression));
             Assert.AreEqual((decimal)0.667, CalculateRevPolNotation.Calculate(threeExpression));
+            Assert.AreEqual(CalculateRevPolNotation.Calculate(fourExpression), -1);
         }
 
         [TestMethod]
