@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,7 +18,7 @@ namespace Calculator
 
             foreach (string token in items)
             {
-                if (decimal.TryParse(token, out tmpNumber))
+                if (decimal.TryParse(token, NumberStyles.Any, new CultureInfo("en-US"), out tmpNumber))
                 {
                     stack.Push(tmpNumber);
                 }
