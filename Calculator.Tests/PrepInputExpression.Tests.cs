@@ -63,7 +63,7 @@ namespace Calculator.Tests
         }
 
         [TestMethod]
-        public void Test_ValidateInputExpresion_CheckRigthSymbols()
+        public void Test_ValidateInputExpresion_CheckRightSymbols()
         {
             // incorrect
             string oneExpression = "qwerty1+2";
