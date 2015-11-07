@@ -78,7 +78,21 @@ namespace Calculator
                 }
             }
 
-            result = RoundResult(stack.Pop());
+            try
+            {
+                if (stack.Count != 0)
+                {
+                    result = RoundResult(stack.Pop());
+                }
+                else
+                {
+                    new ExpresionExceptions("Error! You input incorrect expression.");
+                }
+            }
+            catch (ExpresionExceptions e)
+            {
+                Console.WriteLine(e.Message);
+            }
 
             return result;
         }
