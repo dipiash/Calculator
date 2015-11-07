@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
+using System;
 
 namespace Calculator.Tests
 {
@@ -6,7 +7,7 @@ namespace Calculator.Tests
     public class CalculateRevPolNotationTests
     {
         [TestMethod]
-        public void Test_GetResultCalculateRPNSimpleExpression()
+        public void Test_GetResultCalculateRPN_SimpleExpression()
         {
             string oneExpression = "2 2 +"; // 4
             string twoExpression = "1 2 3 - +"; // 0
@@ -30,7 +31,7 @@ namespace Calculator.Tests
         }
 
         [TestMethod]
-        public void Test_GetResultCalculateRPNDiffcultExpression()
+        public void Test_GetResultCalculateRPN_DiffcultExpression()
         {
             string oneExpression = "2 2 + 30 *"; // 120
             string twoExpression = "2 2 2 3 4 * + / +"; // 2.143
@@ -46,6 +47,21 @@ namespace Calculator.Tests
             catch (ExpresionExceptions e)
             {
                 Assert.AreEqual(e.Message, "Error! You input incorrect expression.");
+            }
+        }
+
+        [TestMethod]
+        public void Test_GetResultCalculateRPN_BigDecimal()
+        {
+            string oneExpression = "9999999999999999999999999 99999999999999999999999 *";
+
+            try
+            {
+                decimal resultExpression = CalculateRevPolNotation.Calculate(oneExpression);
+            }
+            catch (OverflowException e)
+            {
+                Assert.AreEqual(e.Message, "Out of range!");
             }
         }
     }
