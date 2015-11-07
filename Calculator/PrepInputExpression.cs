@@ -9,7 +9,7 @@ namespace Calculator
     public class PrepInputExpression
     {
         private static string _outputexpression = string.Empty;
-        private static string[] _logErros = { };
+        private static List<string> _logErros = new List<string>();
         public static string PrepareExpression(string inputExpression)
         {
             string tmpString = inputExpression;
