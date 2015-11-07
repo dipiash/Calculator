@@ -60,6 +60,28 @@ namespace Calculator
         // Check quotes
         private static List<string> CheckQuotes(string inputExpression)
         {
+            int countOpenQuotes = 0;
+            int countCloseQuotes = 0;
+            int symbolNumber;
+
+            for (symbolNumber = 0; symbolNumber < inputExpression.Length; symbolNumber++)
+            {
+                if (inputExpression[symbolNumber] == '(')
+                {
+                    countOpenQuotes++;
+                }
+
+                if (inputExpression[symbolNumber] == ')')
+                {
+                    countCloseQuotes++;
+                }
+            }
+
+            if (countOpenQuotes != countCloseQuotes)
+            {
+                _logErros.Add("Error! Check your open and close quotes.");
+            }
+
             return _logErros;
         }
 
