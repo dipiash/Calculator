@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace Calculator
 {
+    /// <summary>
+    /// Class contain name constants for application.
+    /// </summary>
     class Constants
     {
         public const string SIMPLE_OPERATORS = "+-*/()";
