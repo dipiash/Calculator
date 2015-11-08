@@ -26,7 +26,7 @@ namespace CalcApp
 
                 if (countErrors != 0)
                 {
-                    Console.WriteLine("\nFounded {0} error.", countErrors);
+                    Console.WriteLine("\nFound {0} error.", countErrors);
                     int item;
                     for (item = 0; item < countErrors; item++)
                     {
