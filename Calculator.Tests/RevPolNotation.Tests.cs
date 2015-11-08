@@ -13,10 +13,10 @@ namespace Calculator.Tests
             string threeExpression = "1*2/3"; // 1 2 3 / *
             string fourExpression = "1.2*2/3"; // 1 2 3 / *
 
-            Assert.AreEqual("2 2 +", RevPolNotation.GetRPNExpression(oneExpression));
-            Assert.AreEqual("1 2 3 - +", RevPolNotation.GetRPNExpression(twoExpression));
-            Assert.AreEqual("1 2 3 / *", RevPolNotation.GetRPNExpression(threeExpression));
-            Assert.AreEqual("1.2 2 3 / *", RevPolNotation.GetRPNExpression(fourExpression));
+            Assert.AreEqual(RevPolNotation.GetRPNExpression(oneExpression), "2 2 +");
+            Assert.AreEqual(RevPolNotation.GetRPNExpression(twoExpression), "1 2 3 - +");
+            Assert.AreEqual(RevPolNotation.GetRPNExpression(threeExpression), "1 2 3 / *");
+            Assert.AreEqual(RevPolNotation.GetRPNExpression(fourExpression), "1.2 2 3 / *");
         }
 
         [TestMethod]
@@ -25,15 +25,15 @@ namespace Calculator.Tests
             string oneExpression = "(2+2)*30"; // 2 2 + 30 *
             string twoExpression = "2+2/(2+3*4)"; // 2 2 2 3 4 * + / +
 
-            Assert.AreEqual("2 2 + 30 *", RevPolNotation.GetRPNExpression(oneExpression));
-            Assert.AreEqual("2 2 2 3 4 * + / +", RevPolNotation.GetRPNExpression(twoExpression));
+            Assert.AreEqual(RevPolNotation.GetRPNExpression(oneExpression), "2 2 + 30 *");
+            Assert.AreEqual(RevPolNotation.GetRPNExpression(twoExpression), "2 2 2 3 4 * + / +");
         }
 
         public void Test_GetRPNExpression_EmptyString()
         {
             string emptyExpression = "";
 
-            Assert.AreEqual("", RevPolNotation.GetRPNExpression(emptyExpression));
+            Assert.AreEqual(RevPolNotation.GetRPNExpression(emptyExpression), "");
         }
     }
 }
