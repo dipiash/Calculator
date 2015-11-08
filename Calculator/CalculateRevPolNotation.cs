@@ -4,8 +4,16 @@ using System.Globalization;
 
 namespace Calculator
 {
+    /// <summary>
+    /// Class for calculate RPN expression.
+    /// </summary>
     public class CalculateRevPolNotation
     {
+        /// <summary>
+        /// Main method for calculate expression
+        /// </summary>
+        /// <param name="inputRPNExpression">RPN expression</param>
+        /// <returns>decimal</returns>
         public static decimal Calculate(string inputRPNExpression)
         {
             string[] items = inputRPNExpression.Split(' ');
@@ -82,6 +90,11 @@ namespace Calculator
             }
         }
 
+        /// <summary>
+        /// Method for check and extract two values from stack.
+        /// </summary>
+        /// <param name="st">stack</param>
+        /// <returns>decimal array</returns>
         private static decimal[] ContainValFromStack(Stack<decimal> st)
         {
             decimal[] twoVal = new decimal[2];
