@@ -74,13 +74,12 @@ namespace Calculator
             if (stack.Count != 0)
             {
                 result = RoundResult(stack.Pop());
+                return result;
             }
             else
             {
                 throw new ExpresionExceptions("Error! You input incorrect expression.");
             }
-
-            return result;
         }
 
         private static decimal[] ContainValFromStack(Stack<decimal> st)
