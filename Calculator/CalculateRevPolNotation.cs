@@ -124,22 +124,66 @@ namespace Calculator
 
         private static decimal Add(decimal a, decimal b)
         {
-            return a + b;
+            decimal result = 0;
+
+            try
+            {
+                result = decimal.Add(a, b);
+            }
+            catch (OverflowException)
+            {
+                throw new ExpresionExceptions("Out of range!");
+            }
+
+            return result;
         }
 
         private static decimal Sub(decimal a, decimal b)
         {
-            return a - b;
+            decimal result = 0;
+
+            try
+            {
+                result = decimal.Subtract(a, b);
+            }
+            catch (OverflowException)
+            {
+                throw new ExpresionExceptions("Out of range!");
+            }
+
+            return result;
         }
 
         private static decimal Div(decimal a, decimal b)
         {
-            return a / b;
+            decimal result = 0;
+
+            try
+            {
+                result = decimal.Divide(a, b);
+            }
+            catch (OverflowException)
+            {
+                throw new ExpresionExceptions("Out of range!");
+            }
+
+            return result;
         }
 
         private static decimal Mul(decimal a, decimal b)
         {
-            return a * b;
+            decimal result = 0;
+
+            try
+            {
+                result = decimal.Multiply(a, b);
+            }
+            catch (OverflowException)
+            {
+                throw new ExpresionExceptions("Out of range!");
+            } 
+
+            return result;
         }
     }
 }
