@@ -2,6 +2,10 @@
 
 namespace Calculator
 {
+    /// <summary>
+    /// Class for simple prepare input mathematical expression and
+    /// validate errors in expression.
+    /// </summary>
     public class PrepInputExpression
     {
         private static string _outputexpression = string.Empty;
