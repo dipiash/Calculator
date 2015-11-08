@@ -20,7 +20,7 @@ namespace Calculator
                 {
                     stack.Push(tmpNumber);
                 }
-                else
+                else if (Constants.SIMPLE_OPERATORS.IndexOf(token) != -1)
                 {
                     switch (token)
                     {
@@ -64,6 +64,10 @@ namespace Calculator
                         default:
                             throw new ExpresionExceptions("Calculate error!");
                     }
+                }
+                else
+                {
+                    throw new ExpresionExceptions("Out of range!");
                 }
             }
 
