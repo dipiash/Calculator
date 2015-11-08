@@ -4,6 +4,9 @@ using System.Linq;
 
 namespace Calculator
 {
+    /// <summary>
+    /// Convert mathematical expression to RPN notation.
+    /// </summary>
     public class RevPolNotation
     {
         private static string _inputExpression = string.Empty;
@@ -55,6 +58,7 @@ namespace Calculator
 
             for (countChars = 0; countChars < legthInputExpression; countChars++)
             {
+                // Parse number in input expression
                 if (Char.IsDigit(inputExpression[countChars]) || inputExpression[countChars] == '.')
                 {
                     while(!IsSimpleOperator(inputExpression[countChars]))
@@ -83,6 +87,7 @@ namespace Calculator
                     {
                         string itemsAtBracket = operatorStack.Pop();
 
+                        // items from stack to output string
                         while (itemsAtBracket != "(")
                         {
                             output += itemsAtBracket + " ";
@@ -92,17 +97,19 @@ namespace Calculator
 
                     if (inputExpression[countChars] != '(' && inputExpression[countChars] != ')')
                     {
-                         if (operatorStack.Count() > 0 && 
-                                GetPriorytyForItem(inputExpression[countChars].ToString()) <= GetPriorytyForItem(operatorStack.Peek()))
-                            {
-                                output += operatorStack.Pop() + " ";
-                            }
+                        // Adding operator to stack if not open|close quote
+                        if (operatorStack.Count() > 0 && 
+                            GetPriorytyForItem(inputExpression[countChars].ToString()) <= GetPriorytyForItem(operatorStack.Peek()))
+                        {
+                            output += operatorStack.Pop() + " ";
+                        }
 
-                         operatorStack.Push(inputExpression[countChars].ToString());
+                        operatorStack.Push(inputExpression[countChars].ToString());
                     }
                 }
             }
 
+            // Output items From stack to output string
             while (operatorStack.Count > 0)
             {
                 output += operatorStack.Pop() + " ";
