@@ -23,5 +23,5 @@ Operations: + - / *
 - CalculateRevPolNotation
 	- Class for calculate expression in RPN notation
 
-## Example od use
+## Example of use
 For console app - [link](https://github.com/dipiash/Calculator/blob/master/CalcApp/Program.cs)
