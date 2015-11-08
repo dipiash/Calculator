@@ -53,13 +53,13 @@ namespace Calculator.Tests
         [TestMethod]
         public void Test_GetResultCalculateRPN_BigDecimal()
         {
-            string oneExpression = "9999999999999999999999999 99999999999999999999999 *";
+            string oneExpression = "999999999999999999999999999999999999999 99999999999999999999999 *";
 
             try
             {
                 decimal resultExpression = CalculateRevPolNotation.Calculate(oneExpression);
             }
-            catch (OverflowException e)
+            catch (ExpresionExceptions e)
             {
                 Assert.AreEqual(e.Message, "Out of range!");
             }
