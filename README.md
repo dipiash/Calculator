@@ -24,4 +24,7 @@ Operations: + - / *
 	- Class for calculate expression in RPN notation
 
 ## Example of use
-For console app - [link](https://github.com/dipiash/Calculator/blob/master/CalcApp/Program.cs)
+- For console app - [link](https://github.com/dipiash/Calculator/blob/master/CalcApp/Program.cs)
+- Screenshots
+	- ![1](https://github.com/dipiash/Calculator/blob/master/ScreenShots/1.PNG)
+	- ![2](https://github.com/dipiash/Calculator/blob/master/ScreenShots/2.PNG)
