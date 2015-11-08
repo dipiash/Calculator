@@ -58,8 +58,7 @@ namespace Calculator
 
             return _logErros;
         }
-
-        // Check quotes
+        
         private static List<string> CheckQuotes(string inputExpression)
         {
             int countOpenQuotes = 0;
