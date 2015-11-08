@@ -22,3 +22,6 @@ Operations: + - / *
 	- Class for cheked simple errors in expression
 - CalculateRevPolNotation
 	- Class for calculate expression in RPN notation
+
+## Example od use
+For console app - (link)[CalcApp/Program.cs]
